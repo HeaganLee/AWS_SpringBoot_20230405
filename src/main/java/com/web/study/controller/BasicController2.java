@@ -63,4 +63,5 @@ public class BasicController2 {
 		return ResponseEntity.created(null).body(DataResponseDto.of(majorDto));
 	}
 	
+	
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.web.study.repository.LectureRegisteRepository">
+  
+  
+  <insert id="registe" parameterType="com.web.study.domain.entity.LectureRegiste">
+  	insert into lecture_registe_mst
+  	values(0, #{lecture_id}, #{student_id}, #{registe_date})
+  </insert>
+  
+  
+</mapper>
