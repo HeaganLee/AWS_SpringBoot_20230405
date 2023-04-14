@@ -56,15 +56,22 @@ public class AuthServiceImpl implements AuthService{
 		
 		
 	}
-
+	
+	// AuthService를 Override를 한 login 메소드 이다. 
 	@Override
 	public JwtTokenRespDto login(LoginReqDto loginReqDto) {
+		// UsernamePasswordAuthenticationToken은 스프링 시큐리어티 프레임워크 입니다.
+		// 클라이언트가 요청을 보낸 아이디와 비밀번호를 인증 처리 할때
+		// UsernamePasswordAuthenticationToken 객체를 생성하여 사용자가 입력한 인증 정보를 담아서 인증 매니저(AuthenticationManager)에게 전달합니다.
+		
 		UsernamePasswordAuthenticationToken authenticationToken =
 				new UsernamePasswordAuthenticationToken(loginReqDto.getUsername(), loginReqDto.getPassword());
 		
-		//UserDetailsService의 loadUserByUsername() 호출이 된다.!!!!
+		// 인증이 성공하면 Authentication 객체로 반환됩니다. 
+		// UserDetailsService의 loadUserByUsername() 호출이 된다.!!!!
 		Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
 		
+		// authentication에 저장된 정보를 JwtTokenProvider로 보냄
 		return jwtTokenProvider.creatToken(authentication);
 	}
 

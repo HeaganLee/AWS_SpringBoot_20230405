@@ -26,9 +26,11 @@ public class AuthController {
 		return ResponseEntity.ok().body(ResponseDto.ofDefault());
 	}
 	
+	// 클라이언트가 요청을 보내면 LoginReqDto에서 정보를 받아서 Controller로 넘겨준다.
 	@PostMapping("/auth/login")
 	public ResponseEntity<? extends ResponseDto> login(@RequestBody LoginReqDto loginReqDto) {
 		
+		// 받은 LoginReqDto는 authService에 loginReqDto를 넘겨줌
 		return ResponseEntity.ok().body(DataResponseDto.of(authService.login(loginReqDto)));
 	}
 }

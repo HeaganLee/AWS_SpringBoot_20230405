@@ -9,5 +9,6 @@ public interface AuthService {
 	public void registeUser(RegisteUserReqDto registeUserReqDto);
 	public void duplicatedUsername(RegisteUserReqDto registeUserReqDto);
 	
+	// JwtTokenRespDto를 반환하는 login 메소드 이다.
 	public JwtTokenRespDto login(LoginReqDto loginReqDto);
 }
